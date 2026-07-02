@@ -1,17 +1,17 @@
-name: ARC Org Scale Test
+name: ARC Scale Test
 
 on:
   workflow_dispatch:
 
 jobs:
-  stress:
-    runs-on: [org-wide]
+  scale-test:
+    runs-on: org-wide
     strategy:
       matrix:
         job: [1,2,3,4,5,6,7,8,9,10,11,12]
     steps:
-      - name: Show runner info
+      - name: Print runner info
         run: |
           echo "Running on: $(hostname)"
-          echo "Job ID: ${{ matrix.job }}"
-          sleep 180
+          echo "Job: ${{ matrix.job }}"
+          sleep 120
